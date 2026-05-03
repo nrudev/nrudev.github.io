@@ -1,0 +1,16 @@
+[
+  {
+    "slug": "hello-world",
+    "title": "포트폴리오를 새로 단장하며",
+    "date": "2026-05-03",
+    "summary": "Claude.com의 에디토리얼 톤을 빌려, 차분한 포트폴리오 페이지를 다시 만들었습니다. 사용한 도구와 작은 결정들에 대해.",
+    "tags": ["meta", "design"]
+  },
+  {
+    "slug": "kotlin-spring-notes",
+    "title": "Kotlin과 Spring Boot, 그 사이의 작은 패턴들",
+    "date": "2026-04-12",
+    "summary": "금융권 백엔드를 다루며 자주 마주친 작은 결정들 — null 다루기, 트랜잭션 경계, 그리고 테스트가 알려주는 것.",
+    "tags": ["kotlin", "spring", "backend"]
+  }
+]
