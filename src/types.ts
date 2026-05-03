@@ -20,8 +20,13 @@ export interface ExperienceItem {
 }
 
 export interface ProjectItem {
+  image?: string;
+  meta?: string;
   title: string;
-  summary: string;
+  period: string;
+  role: string;
+  status: string;
+  summary?: string[];
   stack: string[];
   href?: string;
   placeholder?: boolean;

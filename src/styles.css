@@ -872,6 +872,219 @@ h4 {
   max-width: 280px;
 }
 
+/* === Flip card (Side Projects) === */
+.proj-card.flip {
+  /* The flip card is a positioning context for two faces stacked in 3D.
+     Reset the inherited padding/flex so the inner faces fill the box. */
+  padding: 0;
+  perspective: 1400px;
+  background: transparent;
+  min-height: 320px;
+  aspect-ratio: 4 / 3;
+  cursor: pointer;
+  outline: none;
+}
+.proj-card.flip:focus-visible {
+  box-shadow:
+    0 0 0 2px var(--surface-dark),
+    0 0 0 4px var(--primary);
+}
+.flip-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.7s cubic-bezier(0.2, 0.7, 0.2, 1);
+  border-radius: var(--r-lg);
+}
+.proj-card.flip:hover .flip-inner,
+.proj-card.flip:focus-visible .flip-inner {
+  transform: rotateY(180deg);
+}
+.flip-face {
+  position: absolute;
+  inset: 0;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: var(--r-lg);
+  overflow: hidden;
+}
+
+/* --- Front: screenshot --- */
+.flip-front {
+  background: var(--surface-dark-elevated);
+  border: 1px solid color-mix(in srgb, var(--on-dark) 8%, transparent);
+}
+.flip-shot {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+.flip-shot-fallback {
+  background:
+    repeating-linear-gradient(
+      45deg,
+      color-mix(in srgb, var(--on-dark) 6%, transparent) 0 6px,
+      transparent 6px 12px
+    ),
+    var(--surface-dark-elevated);
+}
+.flip-front-overlay {
+  position: absolute;
+  inset: auto 0 0 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 18px;
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--on-dark);
+  background: linear-gradient(
+    to top,
+    color-mix(in srgb, var(--surface-dark) 88%, transparent) 0%,
+    color-mix(in srgb, var(--surface-dark) 60%, transparent) 60%,
+    transparent 100%
+  );
+}
+.flip-front-overlay .flip-num {
+  color: color-mix(in srgb, var(--on-dark) 70%, transparent);
+}
+.flip-front-overlay .flip-meta {
+  letter-spacing: 0.02em;
+}
+
+/* --- Back: details --- */
+.flip-back {
+  transform: rotateY(180deg);
+  background: var(--surface-dark-elevated);
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+}
+.flip-back .num {
+  font-family: var(--mono);
+  font-size: 12px;
+  color: var(--on-dark-soft);
+  margin-bottom: 16px;
+}
+.flip-back h3 {
+  font-family: var(--serif);
+  color: var(--on-dark);
+  font-size: 26px;
+  line-height: 1.2;
+  letter-spacing: -0.012em;
+  margin-bottom: 10px;
+}
+.flip-back .proj-period {
+  color: var(--on-dark-soft);
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0 0 12px 0;
+  font-family: var(--mono);
+  flex: none;
+}
+.flip-back .proj-role {
+  color: var(--on-dark-soft);
+  font-size: 13px;
+  line-height: 1.55;
+  margin: 0 0 12px 0;
+  font-family: var(--mono);
+  flex: none;
+}
+.flip-back .proj-summary {
+  color: var(--on-dark-soft);
+  font-size: 14px;
+  line-height: 1.55;
+  margin: 0;
+  padding: 0 4px 0 16px;
+  flex: 1;
+  overflow-y: auto;
+  min-height: 0;
+}
+.flip-back .proj-summary::-webkit-scrollbar {
+  width: 6px;
+}
+.flip-back .proj-summary::-webkit-scrollbar-track {
+  background: transparent;
+}
+.flip-back .proj-summary::-webkit-scrollbar-thumb {
+  background: color-mix(in srgb, var(--on-dark) 15%, transparent);
+  border-radius: 4px;
+}
+.flip-back .proj-summary::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in srgb, var(--on-dark) 25%, transparent);
+}
+.flip-back .proj-summary li {
+  margin-bottom: 6px;
+}
+.flip-back .proj-summary li:last-child {
+  margin-bottom: 0;
+}
+.flip-back .row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: 16px;
+  margin-bottom: 8px;
+}
+.flip-back .arrow {
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  border: 1px solid color-mix(in srgb, var(--on-dark) 18%, transparent);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--on-dark);
+  flex-shrink: 0;
+  transition:
+    background 0.15s ease,
+    color 0.15s ease;
+}
+.proj-card.flip:hover .flip-back .arrow,
+.proj-card.flip:focus-visible .flip-back .arrow {
+  background: var(--primary);
+  border-color: var(--primary);
+}
+.flip-back .proj-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin-top: 16px;
+  padding-top: 16px;
+  border-top: 1px solid color-mix(in srgb, var(--on-dark) 8%, transparent);
+}
+.flip-back .proj-stack .chip {
+  background: transparent;
+  border: 1px solid color-mix(in srgb, var(--on-dark) 14%, transparent);
+  color: var(--on-dark-soft);
+  height: 26px;
+  font-size: 12px;
+  padding: 0 10px;
+  font-family: var(--mono);
+  font-weight: 400;
+}
+
+/* Touch / reduced-motion fallback: hover doesn't exist, so on those devices
+   fall back to a simple cross-fade revealing the back on tap (focus). */
+@media (hover: none) {
+  .proj-card.flip .flip-inner {
+    transition: none;
+  }
+  .proj-card.flip:focus-within .flip-inner {
+    transform: rotateY(180deg);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .flip-inner {
+    transition: none;
+  }
+}
+
 /* === CTA band === */
 .cta-band {
   background: var(--primary);

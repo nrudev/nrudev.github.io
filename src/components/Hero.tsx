@@ -13,7 +13,6 @@ function ProfileCard() {
             {PORTFOLIO.role} · {PORTFOLIO.location}
           </div>
         </div>
-        <div className="index">/ 01</div>
       </div>
     </aside>
   );
@@ -21,7 +20,7 @@ function ProfileCard() {
 
 export function Hero() {
   const firstWord = PORTFOLIO.role.split(" ")[0] ?? "";
-  const restWords = PORTFOLIO.role.split(" ").slice(1).join(" ") || "Engineer";
+  const restWords = PORTFOLIO.role.split(" ").slice(1).join(" ") || "Developer";
 
   return (
     <section className="hero" id="top">
@@ -56,7 +55,7 @@ export function Hero() {
               </div>
               <div>
                 <dt>Focus</dt>
-                <dd>Fullstack</dd>
+                <dd>{PORTFOLIO.role}</dd>
               </div>
             </dl>
           </div>

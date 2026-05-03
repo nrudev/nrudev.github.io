@@ -2,7 +2,7 @@ import type { PortfolioData } from "@/types";
 
 export const PORTFOLIO: PortfolioData = {
   name: "구희승",
-  role: "Full-stack Developer",
+  role: "Full-stack",
   location: "Seoul, KR",
   email: "nrudev@naver.com",
   github: "https://github.com/nrudev",
@@ -83,10 +83,20 @@ export const PORTFOLIO: PortfolioData = {
 
   projects: [
     {
-      title: "가상화폐 자동매매 솔루션 - 오아시스",
-      summary: "https://cloud.oasisbot24.com",
-      stack: ["JavaScript", "TypeScript", "React.js", "Next.js"],
-      placeholder: true,
+      image: "/assets/oasis.png",
+      title: "오아시스봇",
+      period: "2024.02 - 현재",
+      role: "Frontend",
+      status: "RUNNING",
+      summary: [
+        "가상화폐 자동매매 솔루션",
+        "현재 베타 오픈 상태",
+        "기획 및 디자인 팀과 긴밀히 소통하며 더 나은 사용자 경험을 고민하고, 논의된 UI/UX 개선안을 화면 위에 실질적인 가치로 구현했습니다.",
+        "2026년 4월부터 AI 바이브 코딩을 적극 도입·활용하여 개발 속도 및 생산성을 크게 향상시켰습니다.",
+      ],
+      stack: ["Next.js", "TypeScript", "Tailwind CSS"],
+      href: "https://cloud.oasisbot24.com",
+      placeholder: false,
     },
   ],
 
